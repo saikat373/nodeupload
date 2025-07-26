@@ -1,0 +1,38 @@
+{
+  "name": "file-upload-server",
+  "version": "1.0.0",
+  "description": "A Node.js file upload server with dynamic folder and filename configuration",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:prod": "NODE_ENV=production node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "docker:build": "docker build -t file-upload-server .",
+    "docker:run": "docker run -p 3000:3000 file-upload-server",
+    "docker:compose": "docker-compose up -d",
+    "docker:compose:prod": "docker-compose --profile production up -d"
+  },
+  "keywords": [
+    "file-upload",
+    "express",
+    "multer",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "express-slow-down": "^2.1.0",
+    "helmet": "^8.1.0",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "jest": "^30.0.5",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  }
+}

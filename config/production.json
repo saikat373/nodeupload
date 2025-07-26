@@ -1,0 +1,33 @@
+{
+  "maxFileSize": 52428800,
+  "maxFiles": 20,
+  "allowedExtensions": [
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".gif",
+    ".pdf",
+    ".txt",
+    ".doc",
+    ".docx",
+    ".xls",
+    ".xlsx",
+    ".ppt",
+    ".pptx",
+    ".zip",
+    ".rar"
+  ],
+  "defaultUploadDir": "uploads",
+  "tempDir": "temp",
+  "port": 3000,
+  "rateLimiting": {
+    "windowMs": 900000,
+    "max": 100,
+    "uploadWindowMs": 900000,
+    "uploadMax": 50
+  },
+  "monitoring": {
+    "enableDetailedHealthCheck": true,
+    "logLevel": "info"
+  }
+}

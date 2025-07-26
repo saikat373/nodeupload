@@ -1,0 +1,9 @@
+.dockerignore
+.kiro/
+.vscode/
+Dockerfile
+README.md
+docker-compose.yml
+k8s-deployment.yaml
+nginx.conf
+node_modules/
