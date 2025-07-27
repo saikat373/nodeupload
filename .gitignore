@@ -7,3 +7,4 @@ docker-compose.yml
 k8s-deployment.yaml
 nginx.conf
 node_modules/
+uploads/
