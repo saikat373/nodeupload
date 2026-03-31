@@ -15,14 +15,18 @@ jobs:
           sshpass -p "${{ secrets.DEV_PASS }}" ssh -o StrictHostKeyChecking=no \
           ${{ secrets.DEV_USER }}@${{ secrets.DEV_SERVER }} \
           "echo Connected && pwd && ls -la"
-
-
-      - name: Deploy via rsync
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      
+      - name: Test Git access
         run: |
-          sshpass -p "${{ secrets.DEV_PASS }}" rsync -rz \
-          --no-perms --no-owner --no-group --omit-dir-times \
-          --exclude='.git' \
-          --exclude='__MACOSX' \
-          --exclude='**/.DS_Store' \
-          ./ ${{ secrets.DEV_USER }}@${{ secrets.DEV_SERVER }}:/var/www/nodeapp
+          ssh -T git@github.com || true
+          
+      - name: Clone repository
+        run: |
+            cd /var/www/nodeapp && git clone https://github.com/saikat373/nodeupload.git .
+
+      
 
