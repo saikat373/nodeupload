@@ -16,6 +16,11 @@ jobs:
           ${{ secrets.DEV_USER }}@${{ secrets.DEV_SERVER }} \
           "echo Connected && pwd && ls -la"
           
+      - name: Fix broken apt repo
+        run: |
+          sudo rm -f /etc/apt/sources.list.d/ondrej-php*.list
+          sudo rm -f /etc/apt/sources.list.d/ondrej-php*.list.save
+          sudo apt-get update
      
 
       - name: Install nginx
