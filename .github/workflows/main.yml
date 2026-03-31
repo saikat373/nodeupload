@@ -18,8 +18,7 @@ jobs:
           
       - name: Fix missing GPG keys
         run: |
-          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 71DAEAAB4AD4CAB6
-          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
+          sudo add-apt-repository --remove ppa:ondrej/php -y || true
           sudo apt update
 
       - name: Install nginx
