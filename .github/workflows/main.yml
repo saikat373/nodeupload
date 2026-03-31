@@ -15,20 +15,7 @@ jobs:
           sshpass -p "${{ secrets.DEV_PASS }}" ssh -o StrictHostKeyChecking=no \
           ${{ secrets.DEV_USER }}@${{ secrets.DEV_SERVER }} \
           "echo Connected && pwd && ls -la"
-          
-      - name: Fix broken apt repo
-        run: |
-          sudo rm -f /etc/apt/sources.list.d/ondrej-php*.list
-          sudo rm -f /etc/apt/sources.list.d/ondrej-php*.list.save
-          sudo apt-get update
-     
 
-      - name: Install nginx
-        run: |
-          sudo apt update
-          sudo apt install nginx -y
-          sudo systemctl start nginx
-          sudo systemctl enable nginx
 
       - name: Deploy via rsync
         run: |
