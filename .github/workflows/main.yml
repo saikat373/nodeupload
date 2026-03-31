@@ -24,7 +24,9 @@ jobs:
         run: |
           ssh -T git@github.com || true
       - name: Make directory
-        run: mkdir backend
+        run: |
+          sudo mkdir backend
+          sudo chown -R sishu:sishu backend
         
       - name: Clone repository
         run: |
