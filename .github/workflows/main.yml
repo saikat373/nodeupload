@@ -24,10 +24,14 @@ jobs:
         run: |
           ssh -T git@github.com || true
         
-      - name: Clone repository
+      - name: Install Node.js
         run: |
-            cd /var/www/backend && git clone https://github.com/saikat373/nodeupload.git .
-            npm install
+          curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+          sudo apt-get install -y nodejs
 
-      
+      - name: Clone and install dependencies
+        run: |
+          cd /var/www/backend || mkdir -p /var/www/backend && cd /var/www/backend
+          git clone https://github.com/saikat373/nodeupload.git . || true
+          npm install
 
