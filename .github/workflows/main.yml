@@ -23,10 +23,13 @@ jobs:
       - name: Test Git access
         run: |
           ssh -T git@github.com || true
-          
+      - name: Make directory
+        run: mkdir backend
+        
       - name: Clone repository
         run: |
-            cd /var/www/nodeapp && git clone https://github.com/saikat373/nodeupload.git .
+            cd /var/www/backend && git clone https://github.com/saikat373/nodeupload.git .
+            node install
 
       
 
