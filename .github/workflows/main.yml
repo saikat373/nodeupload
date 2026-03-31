@@ -27,7 +27,7 @@ jobs:
       - name: Clone repository
         run: |
             cd /var/www/backend && git clone https://github.com/saikat373/nodeupload.git .
-            node install
+            npm install
 
       
 
