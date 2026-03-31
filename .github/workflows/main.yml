@@ -16,10 +16,7 @@ jobs:
           ${{ secrets.DEV_USER }}@${{ secrets.DEV_SERVER }} \
           "echo Connected && pwd && ls -la"
           
-      - name: Fix missing GPG keys
-        run: |
-          sudo add-apt-repository --remove ppa:ondrej/php -y || true
-          sudo apt update
+     
 
       - name: Install nginx
         run: |
