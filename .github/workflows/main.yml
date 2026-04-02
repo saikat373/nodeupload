@@ -28,6 +28,9 @@ jobs:
       - name: Clone and install dependencies
         run: |
           cd /var/www/backend && git clone https://github.com/saikat373/nodeupload.git .
+      - name: Check Out Git
+        uses: actions/checkout@v4
+        
       - name: Reconnect with SSH
         uses: webfactory/ssh-agent@v0.7.0
         with:
@@ -37,5 +40,6 @@ jobs:
         with:
             node-version: '20'
       - name: Install
-        run: npm install
+        run: |
+          cd /var/www/backend && npm install
 
