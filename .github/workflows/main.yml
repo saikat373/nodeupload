@@ -28,4 +28,10 @@ jobs:
       - name: Clone and install dependencies
         run: |
           cd /var/www/backend && git clone https://github.com/saikat373/nodeupload.git .
+      - name: Reconnect with SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Run node modules
+        run: npm install
 
